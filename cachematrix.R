@@ -10,6 +10,7 @@
 
 ## Write a short comment describing this function
 
+#this function is to caching the matrix 
 makeCacheMatrix <- function(x = matrix()) 
 {
     inverse <- NULL
@@ -22,12 +23,13 @@ makeCacheMatrix <- function(x = matrix())
     setInverse <- function(inverse) inverse <<- inverse
     getInverse <- function() inverse
     list(set = set, get = get, setInverse = setInverse,
-         getInverse = getInverse)
+         getInverse = getInverse) 
 }
 
 
 ## Write a short comment describing this function
 
+#this function is to read the caching matrix and inverse it
 cacheSolve <- function(x, ...)
 {
     inverse <- x$getInverse()
@@ -37,7 +39,7 @@ cacheSolve <- function(x, ...)
         return(inverse)
     }
     matrix <- x$get()
-    inverse <- solve(matrix, ...)
+    inverse <- solve(matrix, ...) #key function to inverse the matrix!
     x$setInverse(inverse)
     inverse
 }
